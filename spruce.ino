@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <csignal>
 #include <cassert>
+#include "stubs.h"
 
 using namespace std;
 
@@ -46,10 +47,12 @@ static const String programs[] = {P0, P1, P2};
 static const int P_COUNT = 3;
 static int p_index = 0;
 static const int MODE_PIN = 2;
+static const int LOVE_PIN = 4;
+
 
 static Spruce *s = new Spruce(LAYERS);
 static Button *modeButton = new Button(MODE_PIN, true);
-
+static Button *loveButton = new Button(LOVE_PIN, true);
 
 #ifdef EMU
 
@@ -78,6 +81,10 @@ void change_mode() {
 
 
 void setup() {
+#ifndef EMU
+    Serial.begin(9600);
+#endif
+
     Layer *l0 = new Layer(1);
     l0->addLedOnPin(l0p0);
     Layer *l1 = new Layer(2);
@@ -101,4 +108,21 @@ void setup() {
 
 void loop() {
     s->exec();
+    if (loveButton->readState() == HIGH) {
+        Serial.println("Spruce made with love from Alexander to Ann\n");
+        Serial.println("            ******       ******     ");
+        Serial.println("          **********   **********   ");
+        Serial.println("        ************* ************* ");
+        Serial.println("       *****************************");
+        Serial.println("       *****************************");
+        Serial.println("       *****************************");
+        Serial.println("        *************************** ");
+        Serial.println("          ***********************   ");
+        Serial.println("            *******************     ");
+        Serial.println("              ***************       ");
+        Serial.println("                ***********         ");
+        Serial.println("                  *******           ");
+        Serial.println("                    ***             ");
+        Serial.println("                     *              \n");
+    }
 }

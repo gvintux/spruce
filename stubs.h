@@ -54,6 +54,16 @@ static void attachInterrupt(int pin, ISR_FUNC ISR, I_MODE mode) {
     REPORT(pin, "interrupt attached by mode", I_MODE_DESC[mode]);
 }
 
+class SerialPort
+{
+public:
+    static void println(String s){
+        cerr << s << endl;
+    }
+};
+
+static SerialPort Serial;
+
 #endif
 
 #endif
