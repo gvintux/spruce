@@ -6,7 +6,14 @@
 
 #endif
 
+#ifndef EMU
+
+#define assert(EXPR)
+
+#endif
+
 #include "spruce.h"
+
 
 Spruce::Spruce(int count) {
     assert(count > 0);
@@ -59,12 +66,23 @@ void Spruce::exec() {
             case LC_OFF:
             case LC_TOGGLE:
                 while (i < p_len && isdigit(program.c_str()[i])) ++i;
+#ifdef EMU
                 layer_val = atoi(program.substr(start_idx, i).c_str());
+#endif
+#ifndef EMU
+                layer_val = program.substring(start_idx, i).toInt();
+#endif
                 c = program.c_str()[i];
                 if (c == ':') {
                     LED_idx = ++i;
                     while (i < p_len && isdigit(program.c_str()[i])) ++i;
+#ifdef EMU
                     LED_val = atoi(program.substr(LED_idx, i).c_str());
+#endif
+#ifndef EMU
+                    LED_val = program.substring(LED_idx, i).toInt();
+#endif
+
                 }
                 if (LED_val > -1) layers[layer_val]->activate(LED_val, state);
                 else {
@@ -73,7 +91,12 @@ void Spruce::exec() {
                 break;
             case LC_DELAY:
                 while (i < p_len && isdigit(program.c_str()[i])) ++i;
+#ifdef EMU
                 d_val = atoi(program.substr(start_idx, i).c_str());
+#endif
+#ifndef EMU
+                d_val = program.substring(start_idx, i).toInt();
+#endif
                 delay(d_val);
                 break;
         }

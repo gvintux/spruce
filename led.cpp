@@ -7,6 +7,13 @@
 
 #endif
 
+#ifndef EMU
+
+#include <Arduino.h>
+#include "stubs_arduino.h"
+
+#endif
+
 
 LED::LED(int pin) {
     assert(pin > -1);

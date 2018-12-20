@@ -5,6 +5,13 @@
 
 #endif
 
+#ifndef EMU
+
+#include <Arduino.h>
+typedef int I_MODE;
+
+#endif
+
 #include "button.h"
 
 Button::Button(int pin, bool pullup) {
@@ -36,5 +43,3 @@ int Button::readState() {
 void Button::handle() {
     if (readState() == HIGH) handler();
 }
-
-

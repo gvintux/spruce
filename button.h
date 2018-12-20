@@ -1,6 +1,18 @@
 #ifndef SPRUCE_BUTTON_H
 #define SPRUCE_BUTTON_H
 
+#ifdef EMU
+
+#include "stubs.h"
+
+#endif
+
+#ifndef EMU
+
+#include "stubs_arduino.h"
+
+#endif
+
 typedef void (*ButtonHandler)();
 
 class Button {

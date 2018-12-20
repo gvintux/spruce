@@ -1,6 +1,12 @@
 #ifndef LAYER_H
 #define LAYER_H
 
+#ifndef EMU
+
+#include "stubs_arduino.h"
+
+#endif
+
 #include "led.h"
 
 class Layer {

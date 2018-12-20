@@ -19,10 +19,10 @@ typedef string String;
 typedef void (*ISR_FUNC)();
 
 typedef enum {
-    I_MODE_LOW, I_MODE_CHANGE, I_MODE_RISING, I_MODE_FALLING
+    I_MODE_CHANGE, I_MODE_RISING, I_MODE_FALLING
 } I_MODE;
 
-static const String I_MODE_DESC[] = {"LOW", "CHANGE", "RISING", "FALLING"};
+static const String I_MODE_DESC[] = {"CHANGE", "RISING", "FALLING"};
 
 static void digitalWrite(int pin, int state) {
     REPORT(pin, "state", state == HIGH ? "o" : "x");

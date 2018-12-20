@@ -1,5 +1,10 @@
+#ifdef EMU
+
 #include <cassert>
 #include "stubs.h"
+
+#endif
+
 #include "layer.h"
 
 

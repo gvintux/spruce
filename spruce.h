@@ -9,6 +9,13 @@
 
 #endif
 
+#ifndef EMU
+
+#include <Arduino.h>
+
+#endif
+
+
 class Spruce {
 public:
     Spruce(int count);
