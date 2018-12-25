@@ -21,6 +21,7 @@ Spruce::Spruce(int count) {
     this->last = 0;
     this->layers = new Layer *[count];
     assert(this->layers);
+    program = P_INIT;
 }
 
 Spruce::~Spruce() {
@@ -47,7 +48,6 @@ bool Spruce::isValid(String program) {
 
 
 void Spruce::exec() {
-
     int p_len = program.length();
     int i = 0;
     while (i < p_len) {
@@ -102,4 +102,8 @@ void Spruce::exec() {
         }
 
     }
+
 }
+
+
+

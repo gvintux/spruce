@@ -54,12 +54,29 @@ static void attachInterrupt(int pin, ISR_FUNC ISR, I_MODE mode) {
     REPORT(pin, "interrupt attached by mode", I_MODE_DESC[mode]);
 }
 
-class SerialPort
-{
+class SerialPort {
 public:
-    static void println(String s){
+    static void println(String s) {
         cerr << s << endl;
     }
+
+    static void println(int s) {
+        cerr << s << endl;
+    }
+
+    static void print(int s) {
+        cerr << s;
+    }
+
+    static void print(String s) {
+        cerr << s;
+    }
+
+    static void begin(int baudRate) {
+        REPORT("sys", "serial opened", baudRate);
+    }
+
+    static void flush() {}
 };
 
 static SerialPort Serial;
@@ -67,3 +84,5 @@ static SerialPort Serial;
 #endif
 
 #endif
+
+

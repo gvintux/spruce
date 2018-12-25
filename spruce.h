@@ -14,11 +14,13 @@
 #include <Arduino.h>
 
 #endif
+static const String P_RESET = "L3L2L1L0";
 
+static const String P_INIT = "H3H21H0D2000";
 
 class Spruce {
 public:
-    Spruce(int count);
+    Spruce(int count); 
 
     ~Spruce();
 
@@ -29,7 +31,7 @@ public:
     void exec();
 
     static bool isValid(String program);
-
+    
 private:
     Layer **layers;
     String program;
@@ -38,3 +40,5 @@ private:
 };
 
 #endif
+
+
