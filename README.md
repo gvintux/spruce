@@ -20,7 +20,6 @@ program for light garland
 
 * CMake
 
-
 ## Build & Run
 
 * open `spruce.ino` in Arduino IDE and load program to microcontroller
@@ -28,6 +27,8 @@ program for light garland
   or
 
 * run `cmake .` for build debug version for x86 or x64 architecture
+
+* run `make` for build executable
 
 * run `./spruce`
 
