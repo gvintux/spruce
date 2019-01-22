@@ -21,7 +21,7 @@ Layer::~Layer() {
 }
 
 void Layer::addLedOnPin(int pin) {
-    assert(pin > 0);
+    assert(pin >= 0);
     assert(last < count);
     LED *led = new LED(pin);
     assert(led);
